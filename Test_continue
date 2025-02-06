@@ -1,67 +1,72 @@
 Test 5.2.25
 part B
-2)
-a)א
+2)==
+א)=
 SELECT genre,count(genre) as nums_of_movies FROM movies
 GROUP by genre
 
-b)ב
+ב)=
 SELECT year, sum(revenue) as total_revenue from movies
 GROUP by year
 
-c)ג
+ג)=
 SELECT genre, round(avg(revenue)) as avg_revenue from movies
 GROUP by genre
 
-d)ד
+ד)=
 ---
 
-e)ה
+ה)=
 SELECT count(movie_name),language from movies
 GROUP by language
 ORDER by count(movie_name) ASC
 limit 1  ## there is 2 more language that have only 1
 
-f)ו
+ו)=
 SELECT count(movie_name),country from movies
 GROUP by country
 ORDER by count(movie_name) DESC
 limit 1
 
-g)ז
+ז)=
 SELECT genre,count(id) FROM movies
 GROUP by genre
 HAVING count(id) > 2 # i also can use count("movie_name") but i want to use "id" column
-h)ח
+
+ח)=
 SELECT year,sum(revenue) as total_revnue FROM movies
 GROUP by year
 HAVING sum(revenue) > 1000
 
-h)ט
+ט)=
 SELECT count(id),language from movies
 GROUP by language
 HAVING count(id) >= 3 -- more than 3 movies
 
 3) joins
-א)
+א)=
 SELECT * FROM tourists
 INNER JOIN countries 
 on tourists.country_id = countries.id
-ב)
+
+ב)=
 SELECT * FROM tourists 
 INNER JOIN tours 
 on tourists.tour_id = tours.id
-ג)
+
+ג)=
 SELECT * FROM tourists
 LEFT JOIN tours 
 on tourists.tour_id = tours.id
-ד)
+
+ד)=
 SELECT * FROM tourists
 full JOIN tours 
 on tourists.tour_id = tours.id
 FULL JOIN countries
 on tourists.country_id = countries.id
-ה)
+
+ה)=
 SELECT * FROM tourists 
 LEFT JOIN tours 
 on tourists.tour_id = tours.id
@@ -70,6 +75,7 @@ WHERE tourists.tour_id is NULL
 DELETE FROM tourists
 WHERE id  = (SELECT id FROM tourists
 WHERE tour_id is NULL limit 1)
+
 ו)
 SELECT * FROM tours
 LEFT JOIN tourists
@@ -82,11 +88,13 @@ WHERE start_date = (SELECT start_date FROM tours
 LEFT JOIN tourists
 on tours.id = tourists.tour_id
 WHERE tourists.tour_id is NULL)
-ז)
+
+ז)=
 SELECT count(*) as tours_without_tourists FROM tours
 LEFT JOIN tourists
 on tours.id = tourists.tour_id
 WHERE tourists.tour_id is NULL
-ח)
+
+ח)=
 SELECT *  FROM tourists
 CROSS JOIN tours
