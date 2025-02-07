@@ -14,7 +14,9 @@ SELECT genre, round(avg(revenue)) as avg_revenue from movies
 GROUP by genre
 
 ד)=
----
+SELECT genre, language, round(AVG(revenue)) FROM movies
+GROUP BY genre, language
+ORDER BY genre, language
 
 ה)=
 SELECT count(movie_name),language from movies
